@@ -1,3 +1,4 @@
+//changed a axis and orientation
 #include "LVGL_Example.h"
 
 /*-----------------------------------
@@ -39,7 +40,7 @@ void Lvgl_Example1(void)
     g_img3 = lv_img_create(scr);
     lv_img_set_src(g_img3, &overlay);
 
-    // Align overlay on bg2 (centered)
+    // Align overlay on bg2 (exact center)
     lv_obj_align_to(g_img3, g_img2, LV_ALIGN_CENTER, 0, 0);
 
     // Load the screen
