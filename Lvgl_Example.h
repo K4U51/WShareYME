@@ -8,7 +8,7 @@
 #include "BAT_Driver.h"
 #include "Display_ST7701.h"  
 #include "lvgl.h"
-#include "ui.h"  // LV_IMG_DECLARE for your images
+#include "Lvgl_Example.h"  // LV_IMG_DECLARE for your images
 
 #define EXAMPLE1_LVGL_TICK_PERIOD_MS  1000
 
@@ -21,7 +21,7 @@ void LVGL_Backlight_adjustment(uint8_t Backlight);
 /*-----------------------------------
  * LVGL Example 1 (OLD) - comment out until updated
  *----------------------------------*/
-// void Lvgl_Example1(void);  // OLD example, replace with new 3-image implementation later
+void Lvgl_Example1(void);  // OLD example, replace with new 3-image implementation later
 
 /*-----------------------------------
  * Overlay movement API
