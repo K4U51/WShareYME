@@ -12,7 +12,7 @@
 //--------------------------------------
 void Lvgl_UpdateOverlayFromGyro(void * parameter)
 {
-    const float sensitivity = 40.0f; // adjust for desired motion range
+    const float sensitivity = 40.0f; // adjust for desired motion range try 60
 
     // --- Step 1: auto-calibration ---
     float offsetX = 0.0f, offsetY = 0.0f;
@@ -41,7 +41,7 @@ void Lvgl_UpdateOverlayFromGyro(void * parameter)
         float rawY = getAccY();
         float rawZ = getAccZ();
 
-        // Remap axes for wall mount
+        // Remap axis for wall mount. Used for setting changing axis.
         float dx = rawZ - offsetX; // horizontal
         float dy = rawY - offsetY; // vertical
 
