@@ -30,8 +30,8 @@ void Lvgl_Example1(void)
     LV_IMG_DECLARE(bg2);
     g_img2 = lv_img_create(scr);
     lv_img_set_src(g_img2, &bg2);
+       // lv_obj_set_size(g_img2, 480, 480); possible fix for roundng box
     lv_obj_center(g_img2);
-   // lv_obj_set_size(g_img2, 480, 480); possible fix for roundng box.
     lv_obj_add_flag(g_img2, LV_OBJ_FLAG_HIDDEN);
 
     // -------------------------
