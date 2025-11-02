@@ -1,0 +1,22 @@
+```
+void setup()
+{
+    Wireless_Test2();
+    Driver_Init();
+
+    LCD_Init();       // Initialize SPI display
+    SD_Init();        // Must be after LCD
+
+    Lvgl_Init();      // Initialize LVGL library
+    Lvgl_Example1();  // Load background and overlay
+
+    // --- Fix grey line / overflow artifacts on main LVGL screen ---
+    lv_obj_t *main_scr = lv_scr_act(); // get the active LVGL screen
+    lv_obj_set_style_pad_all(main_scr, 0, 0);
+    lv_obj_set_style_border_width(main_scr, 0, 0);
+    lv_obj_clear_flag(main_scr, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_scrollbar_mode(main_scr, LV_SCROLLBAR_MODE_OFF);
+    lv_obj_set_style_clip_corner(main_scr, true, 0);
+
+    Serial.println("[UI] Screen border/padding fix applied");
+}
