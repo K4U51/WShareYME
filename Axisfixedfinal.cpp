@@ -12,7 +12,7 @@
 //--------------------------------------
 void Lvgl_UpdateOverlayFromGyro(void * parameter)
 {
-    const float sensitivity = 40.0f; // adjust for desired motion range try 60
+    const float sensitivity = 60.0f; // adjust for desired motion range try 60
 
     // --- Step 1: auto-calibration ---
     float offsetX = 0.0f, offsetY = 0.0f;
@@ -20,8 +20,8 @@ void Lvgl_UpdateOverlayFromGyro(void * parameter)
     Serial.println("[Overlay] Calibrating... hold board level");
 
     for (int i = 0; i < samples; i++) {
-        offsetX += getAccZ(); // horizontal movement on wall mount
-        offsetY += getAccY(); // vertical movement
+        offsetX += getAccX(); // changed to getAccX
+        offsetY += getAccZ(); // changed to getAccZ
         vTaskDelay(pdMS_TO_TICKS(10));
     }
 
@@ -42,8 +42,8 @@ void Lvgl_UpdateOverlayFromGyro(void * parameter)
         float rawZ = getAccZ();
 
         // Remap axis for wall mount. Used for setting changing axis.
-        float dx = rawZ - offsetX; // horizontal
-        float dy = rawY - offsetY; // vertical
+        float dx = rawX - offsetX; // horizontal
+        float dy = rawZ - offsetY; // vertical
 
         dx = constrain(dx, -1.0f, 1.0f);
         dy = constrain(dy, -1.0f, 1.0f);
